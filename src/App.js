@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
+export default function App() {
+  const [num, setNum] = useState(0);
+
+  const increaseNum = (e) => {
+    setNum(num + 1);
+    e.preventDefault();
+  };
+  const decrease = (e) => {
+    if (num > 0) {
+      setNum(num - 1);
+    }
+    e.preventDefault();
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form className="app">
+      <input type="text" name="" id="" value={num} />
+      <div className="btns">
+        <button onClick={increaseNum}>Inscrease + </button>
+        <button onClick={decrease}>Decrease + </button>
+      </div>
+    </form>
   );
 }
-
-export default App;
